@@ -1,8 +1,7 @@
 import React from "react";
-import ReactDOM from "react-dom/client";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Login from "./pages/login";
-import Question from "./components/Question";
+import QuestionPage from "./pages/questionPage";
 import './styles/App.css';
 
 function App() {
@@ -15,7 +14,7 @@ function App() {
         <Routes>
 
           <Route path="/" element={<Login />} />
-          <Route path="/question" element={<Question />} />
+          <Route path="/question" element={<QuestionPage />} />
 
           {/* <Route path="/home" element={<Home />} />
 
