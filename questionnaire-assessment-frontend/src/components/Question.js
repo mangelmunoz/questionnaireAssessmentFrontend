@@ -2,13 +2,15 @@ import '../styles/Question.css'
 
 function Question(props) {
 
+    var select = document.getElementById('answerSelect');
+
     return (
         <div className="margins">
             <div className="card text-white bg-dark mb-3 container-md">
                 <div className="card-body">
                     <h5 className="card-title">Question no.1/20</h5>
                     <p className="card-text">{props.questionText && props.questionText}</p>
-                    <select onSelect={0} className="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
+                    <select onSelect={0} className="form-select form-select-lg mb-3" aria-label=".form-select-lg example" id="answerSelect">
                         <option value={0}>Pick an answer</option>
                         {props.answers && props.answers.map(answer => <option value={answer.answerText}>{answer.answerText}</option>)}
                     </select>
