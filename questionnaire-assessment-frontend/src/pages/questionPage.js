@@ -17,18 +17,27 @@ function QuestionPage(props) {
     useEffect(() => {
         console.log("Email: " + props.email)
         fetch("http://localhost:8080/question/get/all", requestOptions)
-        .then(response => response.json())
-        .then(result => {
-            setQuestions([...result]); 
-        })
-        .catch(error => console.log('error', error));
+            .then(response => response.json())
+            .then(result => {
+                setQuestions([...result]);
+            })
+            .catch(error => console.log('error', error));
     }, [])
 
     const onQuestionSubmitted = (answer) => {
-        console.log(answer);
         setAnswers(prevanswer => [...prevanswer, answer])
 
         if (currentIndex + 1 >= questions.length) {
+            fetch('http://localhost:8080/user/add', {
+                method: 'POST',
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ "email": props.email, "answers": answers })
+            })
+                .then(response => response.json())
+                .then(response => console.log("email " + props.email + " - answers " + answers ) && console.log(JSON.stringify(response)))
             navigate("/testend");
         }
         else {
