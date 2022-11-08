@@ -26,11 +26,18 @@ function QuestionPage(props) {
     }, [])
 
     useEffect(() => {
+
         if(!post) {
             return;
         }
 
-        console.log(currentIndex, questions.length);
+        if(currentIndex == questions.length - 1){
+            document.querySelector('.btn-submit').classList.remove("btn-primary")
+            document.querySelector('.btn-submit').classList.add("btn-success")
+            document.querySelector('.btn-submit').textContent = "Terminar";
+        }
+
+
         if (currentIndex >= questions.length) {
             console.log(answers);
             fetch('http://localhost:8080/user/add', {
