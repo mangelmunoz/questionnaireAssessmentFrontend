@@ -13,8 +13,8 @@ function TestEnd() {
             <div className="card-body row align-items-center">
                 TEST ENDED
             </div>
-            <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                <button class="btn btn-primary me-md-2" type="button" onClick={onClick}>Go back to login</button>
+            <div className="d-grid gap-2 d-md-flex justify-content-md-end">
+                <button className="btn btn-primary me-md-2" type="button" onClick={onClick}>Go back to login</button>
             </div>
         </div>
     );
