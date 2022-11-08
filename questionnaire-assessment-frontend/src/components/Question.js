@@ -1,6 +1,9 @@
 import '../styles/Question.css'
 
 function Question(props) {
+
+    
+
     return (
         <div className="margins">
             <div class="card text-white bg-dark mb-3 container-md">

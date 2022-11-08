@@ -4,12 +4,12 @@ import Question from "../components/question";
 function QuestionPage() {
 
     const [questions, setQuestions] = useState([]);
-    const [actualQuestion, setActualQuestion] = useState({});
+    const [answers, setAnswers] = useState([]);
 
     useEffect(() => { 
         console.log("Fetch questions")
         setQuestions([{questionText: "PRIMERA?", answers: ["UNO", "DOS", "TRES"]}, {questionText: "de verdad?", answers: ["SI", "NO", "A VECES"]}]);
-        setActualQuestion(questions[0]);
+        // setActualQuestion(questions[0]);
     }, [])
 
     const onQuestionSubmitted = () => {
