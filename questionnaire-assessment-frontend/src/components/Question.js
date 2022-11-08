@@ -15,8 +15,8 @@ function Question(props) {
                 </div>
             </div>
 
-            <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                <button class="btn btn-primary me-md-2" type="button" onClick={() => props.onSubmit(select.options[select.selectedIndex].value)}>Submit</button>
+            <div className="d-grid gap-2 d-md-flex justify-content-md-end">
+                <button className="btn btn-primary me-md-2" type="button" onClick={() => props.onSubmit(select.options[select.selectedIndex].value)}>Submit</button>
             </div>
         </div>
     );
