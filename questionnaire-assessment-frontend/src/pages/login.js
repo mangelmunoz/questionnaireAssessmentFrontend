@@ -1,9 +1,9 @@
 import LoginForm from "../components/loginForm";
 
-function Login() {
+function Login(props) {
     return (
         <div>
-            <LoginForm />
+            <LoginForm setEmail={props.setEmail}/>
         </div>
     );
 }

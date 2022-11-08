@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { useNavigate } from 'react-router-dom';
 import Question from "../components/question";
 
-function QuestionPage() {
+function QuestionPage(props) {
 
     const [questions, setQuestions] = useState([]);
     const [currentIndex, setCurrentIndex] = useState(0);
@@ -15,7 +15,7 @@ function QuestionPage() {
     };
 
     useEffect(() => {
-        console.log("Fetch questions")
+        console.log("Email: " + props.email)
         fetch("http://localhost:8080/question/get/all", requestOptions)
         .then(response => response.json())
         .then(result => {

@@ -4,7 +4,7 @@ import '../styles/loginForm.css';
 
 
 
-function LoginForm() {
+function LoginForm(props) {
 
     const [submit, setSubmit] = useState(false);
     const [email, setEmail] = useState("");
@@ -39,7 +39,7 @@ function LoginForm() {
         .then( (response) => {
             
             if(response){
-
+                props.setEmail(email);
                 navigate("/question")
                 setSubmit(false)
             }
