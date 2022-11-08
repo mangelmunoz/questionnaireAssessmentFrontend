@@ -57,7 +57,6 @@ function LoginForm(props) {
         console.log(event.target)
         setEmail(document.getElementById("emailInput").value)
         
-    
     }
 
     return (
@@ -70,7 +69,7 @@ function LoginForm(props) {
                             <label htmlFor="emailInput" className="form-label">Email address</label>
                             <input type="email" className="form-control" id="emailInput" placeholder="name@example.com" />
                         </div>
-                        <button type="button" className="btn btn-primary" id="loginSubmit" onClick={onSubmit}>Login</button>
+                        <button type="submit" className="btn btn-primary" id="loginSubmit" onClick={onSubmit}>Login</button>
                     </form>
                 </div>
             </div>
