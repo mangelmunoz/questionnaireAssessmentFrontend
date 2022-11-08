@@ -24,7 +24,10 @@ function QuestionPage() {
         .catch(error => console.log('error', error));
     }, [])
 
-    const onQuestionSubmitted = () => {
+    const onQuestionSubmitted = (answer) => {
+        console.log(answer);
+        setAnswers(prevanswer => [...prevanswer, answer])
+
         if (currentIndex + 1 >= questions.length) {
             navigate("/testend");
         }
