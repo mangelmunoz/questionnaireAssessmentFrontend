@@ -2,17 +2,17 @@ import '../styles/Question.css'
 
 function Question(props) {
 
-    
+
 
     return (
         <div className="margins">
             <div class="card text-white bg-dark mb-3 container-md">
                 <div class="card-body">
                     <h5 class="card-title">Question no.1/20</h5>
-                    <p class="card-text">{props.question && props.question.questionText}</p>
+                    <p class="card-text">{props.questionText && props.questionText}</p>
                     <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
                         <option selected>Pick an answer</option>
-                        {props.question && props.question.answers.map(answer => <option value={answer}>{answer}</option>)}
+                        {props.answers && props.answers.map(answer => <option value={answer}>{answer}</option>)}
                     </select>
                 </div>
             </div>

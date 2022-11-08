@@ -1,28 +1,43 @@
 import { useState, useEffect } from "react";
+import { useNavigate } from 'react-router-dom';
 import Question from "../components/question";
 
 function QuestionPage() {
 
     const [questions, setQuestions] = useState([]);
+    const [currentIndex, setCurrentIndex] = useState(0);
     const [answers, setAnswers] = useState([]);
+    const navigate = useNavigate();
 
-    useEffect(() => { 
+    var requestOptions = {
+        method: 'GET',
+        redirect: 'follow'
+    };
+
+    useEffect(() => {
         console.log("Fetch questions")
-        setQuestions([{questionText: "PRIMERA?", answers: ["UNO", "DOS", "TRES"]}, {questionText: "de verdad?", answers: ["SI", "NO", "A VECES"]}]);
-        // setActualQuestion(questions[0]);
+        fetch("http://localhost:8080/question/get/all", requestOptions)
+        .then(response => response.json())
+        .then(result => {
+            setQuestions(result); 
+            console.log(result); 
+            console.log(questions)
+        })
+        .catch(error => console.log('error', error));
     }, [])
 
     const onQuestionSubmitted = () => {
-        /**
-         * We pop a question
-         */
-        questions.pop()
-        setQuestions(questions => [...questions]);
+        if (currentIndex + 1 >= questions.length) {
+            navigate("/testend");
+        }
+        else {
+            setCurrentIndex(currentIndex + 1);
+        }
     }
 
     return (
         <div>
-            <Question question={questions[0]} onSubmit={onQuestionSubmitted}/>
+            <Question questionText={questions[currentIndex] && questions[currentIndex].questionText} answers={questions[currentIndex] && questions[currentIndex].answers} onSubmit={onQuestionSubmitted} />
         </div>
     );
 }
