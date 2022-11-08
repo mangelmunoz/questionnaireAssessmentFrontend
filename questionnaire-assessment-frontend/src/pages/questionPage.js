@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from 'react-router-dom';
-import Question from "../components/Question";
+import Question from "../components/question";
 
 function QuestionPage(props) {
 
