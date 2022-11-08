@@ -20,16 +20,6 @@ function App() {
           <Route path="/question" element={<QuestionPage email={email}/>} />
           <Route path="/testend" element={<TestEndPage />} />
 
-          {/* <Route path="/home" element={<Home />} />
-
-          <Route path="/userData/:id" element={<UserData />} />
-
-          <Route path="*" element={<NoPage />} />
-
-          <Route path="/payment" element={<PaymentData />} /> */}
-
-          {/* </Route> */}
-
         </Routes>
 
       </BrowserRouter>
