@@ -26,19 +26,32 @@ function LoginForm() {
         fetch(string, requestOptions)
         .then(response => {
 
+            console.log(response)
             if(!response.ok) {
                 console.log("USUARIO YA REGISTRADO")
-                return;
+                setSubmit(false)
+                return false;
             }
 
+            return true;
+            
         } )
-        .then( () => navigate("/question") )
+        .then( (response) => {
+            
+            if(response){
+
+                navigate("/question")
+                setSubmit(false)
+            }
+        } )
+
         .catch(error => console.log('error', error));
 
     }, [submit])
 
     const onSubmit = (event) => {
 
+        event.preventDefault();
         setSubmit(true)
 
         console.log(event.target)
