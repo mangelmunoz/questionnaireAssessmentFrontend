@@ -7,6 +7,7 @@ function QuestionPage(props) {
     const [questions, setQuestions] = useState([]);
     const [currentIndex, setCurrentIndex] = useState(0);
     const [answers, setAnswers] = useState([]);
+    const [post, setPost] = useState(false);
     const navigate = useNavigate();
 
     var requestOptions = {
@@ -24,10 +25,14 @@ function QuestionPage(props) {
             .catch(error => console.log('error', error));
     }, [])
 
-    const onQuestionSubmitted = (answer) => {
-        setAnswers(prevanswer => [...prevanswer, answer])
+    useEffect(() => {
+        if(!post) {
+            return;
+        }
 
-        if (currentIndex + 1 >= questions.length) {
+        console.log(currentIndex, questions.length);
+        if (currentIndex >= questions.length) {
+            console.log(answers);
             fetch('http://localhost:8080/user/add', {
                 method: 'POST',
                 headers: {
@@ -40,9 +45,14 @@ function QuestionPage(props) {
                 .then(response => console.log("email " + props.email + " - answers " + answers ) && console.log(JSON.stringify(response)))
             navigate("/testend");
         }
-        else {
-            setCurrentIndex(currentIndex + 1);
-        }
+    }, [answers])
+
+
+
+    const onQuestionSubmitted = (answer) => {
+        setAnswers(prevanswer => [...prevanswer, answer])
+        setCurrentIndex(currentIndex + 1);
+        setPost(true);
     }
 
     return (
