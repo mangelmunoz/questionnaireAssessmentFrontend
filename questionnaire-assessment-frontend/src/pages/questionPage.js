@@ -19,9 +19,7 @@ function QuestionPage() {
         fetch("http://localhost:8080/question/get/all", requestOptions)
         .then(response => response.json())
         .then(result => {
-            setQuestions(result); 
-            console.log(result); 
-            console.log(questions)
+            setQuestions([...result]); 
         })
         .catch(error => console.log('error', error));
     }, [])

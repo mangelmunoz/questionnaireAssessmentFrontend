@@ -12,7 +12,7 @@ function Question(props) {
                     <p class="card-text">{props.questionText && props.questionText}</p>
                     <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
                         <option selected>Pick an answer</option>
-                        {props.answers && props.answers.map(answer => <option value={answer}>{answer}</option>)}
+                        {props.answers && props.answers.map(answer => <option value={answer.answerText}>{answer.answerText}</option>)}
                     </select>
                 </div>
             </div>
